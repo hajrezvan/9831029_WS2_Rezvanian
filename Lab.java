@@ -1,4 +1,16 @@
 public class Lab {
+    private Student[] students;
+    private int avg;
+    private String day;
+    private int capacity;
+    private int currentSize;
+
+    public Lab(String day, int capacity) {
+        this.day = day;
+        this.capacity = capacity;
+        avg = 0;
+    }
+
     public Student[] getStudents() {
         return students;
     }
@@ -31,12 +43,6 @@ public class Lab {
         this.capacity = capacity;
     }
 
-    private Student[] students;
-    private int avg;
-    private String day;
-    private int capacity;
-    private int currentSize;
-
     public Lab(int cap, String d) {
     }
 
@@ -50,9 +56,17 @@ public class Lab {
     }
 
     public void print() {
+        for (Student s :
+                students) {
+            System.out.println(s.getLastName()
+                    + ", ID number: " + s.getId()
+                    + ", Grade: " + s.getGrade());
+        }
     }
 
     public void calculateAvg() {
+        for (Student student : students) {
+            avg += student.getGrade();
+        }
     }
-
 }
